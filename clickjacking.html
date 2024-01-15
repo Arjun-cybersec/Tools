@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Clickjacking Test Page</title>
+</head>
+
+<body>
+
+    <h2>Clickjacking Test Page</h2>
+    <label for="iframeUrl">Enter source URL:</label>
+    <input type="text" id="iframeUrl" placeholder="https://example.com">
+    <button onclick="updateIframe()">Update Iframe</button>
+
+    <div>
+        <p>Website is vulnerable to clickjacking!</p>
+        <iframe id="clickjackIframe" width="500" height="500"></iframe>
+    </div>
+
+    <script>
+        function updateIframe() {
+            var iframeUrl = document.getElementById("iframeUrl").value;
+            var iframeElement = document.getElementById("clickjackIframe");
+
+            // Set the src attribute of the iframe with the provided URL
+            iframeElement.src = iframeUrl;
+        }
+    </script>
+
+</body>
+
+</html>
